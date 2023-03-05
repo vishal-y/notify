@@ -13,32 +13,67 @@ else{
 }
 
 // request permission
-Notification.requestPermission().then((what) =>{
-    document.getElementById("overlay").style.display = "none";
+// Notification.requestPermission().then((what) =>{
+//     document.getElementById("overlay").style.display = "none";
     
-        alert(what);
+//         alert(what);
       
-        if(what=="granted"){
+//         if(what=="granted"){
 
-            localStorage.setItem("allowed",true);
+//             localStorage.setItem("allowed",true);
 
-            setTimeout(() => {
-                const noti = new Notification("Upcoming event !!",{
-                    body : a.firstElementChild.innerText,
-                    data : { Hello : "world"},
-                    icon : "logo.png",
-                    tag : "new event updated",
-                    vibrate : true,
-                })
-                noti.addEventListener("close",e=>{
-                console.log(e)
-            }, 5000);
+//             setTimeout(() => {
+//                 const noti = new Notification("Upcoming event !!",{
+//                     body : a.firstElementChild.innerText,
+//                     data : { Hello : "world"},
+//                     icon : "logo.png",
+//                     tag : "new event updated",
+//                     vibrate : true,
+//                 })
+//                 noti.addEventListener("close",e=>{
+//                 console.log(e)
+//             }, 5000);
 
-        })
-    }       
-    else{
+//         })
+//     }       
+//     else{
+//         document.getElementById("overlay").style.display = "none";
+//           localStorage.setItem("allowed",false);
+//     }
+// })
+
+
+// Check if the browser supports notifications
+if ("Notification" in window) {
+    // Request permission to show notifications
+    Notification.requestPermission().then((permission) => {
+      
+        // If the user grants permission, show the notification
+        document.getElementById("overlay").style.display = "none";
+    
+
+      if (permission === "granted") {
+        setTimeout(() => {
+
+            alert("notification about to come")
+
+            const noti = new Notification("Upcoming event !!",{
+                body : a.firstElementChild.innerText,
+                data : { Hello : "world"},
+                icon : "logo.png",
+                tag : "new event updated",
+                vibrate : true,
+            })
+            noti.addEventListener("close",e=>{
+            console.log(e)
+        }, 5000);
+
+    })
+      }
+      else{
         document.getElementById("overlay").style.display = "none";
           localStorage.setItem("allowed",false);
     }
-})
-
+    });
+  }
+  
