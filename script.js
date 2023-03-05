@@ -76,4 +76,6 @@ if ("Notification" in window) {
     }
     });
   }
-  
+  else{
+    console.log("something wrong")
+  }
