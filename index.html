@@ -23,15 +23,42 @@
 }
     </style>
 
+    <script>
+		// Check if the browser supports notifications.
+		if ('Notification' in window) {
+			// Request permission from the user to show notifications.
+			Notification.requestPermission().then(function (result) {
+				console.log('Notification permission:', result);
+			});
+		}
+
+		// Display a notification.
+		function displayNotification() {
+			// Check if the user has granted permission to show notifications.
+			if (Notification.permission === 'granted') {
+				// Create a new notification.
+				var notification = new Notification('Title', {
+					body: 'This is the body text of the notification.',
+					icon: 'path/to/icon.png'
+				});
+
+				// Add an event listener to handle clicks on the notification.
+				notification.addEventListener('click', function () {
+					console.log('Notification clicked.');
+				});
+			}
+		}
+	</script>
+
 </head>
-<body class="flex justify-center">
+<body >
     
     <div id="overlay">
         <p class="flex justify-center item-center text-3xl mt-[30vh] text-white">Do allow notification to get new updates and event info</p>
     </div>
 
-    <div id="main" class="s mt-[20vh] w-[60vw] md:border border-red-500 justify-evenly flex ">
-        <div id="events" class="border border-red-500 p-3 w-[80vw]">
+    <div id="main" class="s mt-[20vh] w-[60vw] md:border border-red-500 justify-evenly flex ml-[24vw]">
+        <div id="events" class="border border-red-500 p-3 w-[80vw]"`>
             <h2 class="border-b-2 border-red-400 p-2 mb-2 text-center text-3xl font-bold"> <span class="text-[#f0a831]">EVENTS</span></h2>
             <div id="event_info">
                 <p>(upcoming) The Tech-bit 4.0 September 26, 2023 <span class="text-red-400 font-bold">Click here to view</span></p>
@@ -47,6 +74,11 @@
             </div>
         </div>
     </div>
+
+
+    <button onclick="displayNotification()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        notify
+      </button>
 
 </body>
 <script src="push.min.js"></script>
