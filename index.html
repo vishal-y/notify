@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        #overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+    </style>
+
+</head>
+<body class="flex justify-center">
+    
+    <div id="overlay">
+        <p class="flex justify-center item-center text-3xl mt-[30vh] text-white">Do allow notification to get new updates and event info</p>
+    </div>
+
+    <div id="main" class="mt-[20vh] w-[60vw] border border-red-500 justify-evenly flex ">
+        <div id="events" class="border border-red-500 p-3 w-[80vw]">
+            <h2 class="border-b-2 border-red-400 p-2 mb-2 text-center text-3xl font-bold"> <span class="text-[#f0a831]">EVENTS</span></h2>
+            <div id="event_info">
+                <p>(upcoming) The Tech-bit 4.0 September 26, 2023 <span class="text-red-400 font-bold">Click here to view</span></p>
+                <p>Republic Day Flag Hoisting January 26, 2023 <span class="text-red-400 font-bold">Click here to view</span></p>
+                <p>Annual Fest TALENZZIAA January 21, 2023 <span class="text-red-400 font-bold">Click here to view</span></p>
+            </div>
+        </div>
+        <div id="notice" class="border border-red-500 p-3 w-[80vw]">
+            <h2 class="border-b-2 border-red-400 p-2 mb-2 text-center text-3xl font-bold">NOTICES</h2>
+            <div id="notice_info">
+                <p>Result of Semester I & III (ATKT) Exam held in February 2023 <span class="text-red-400 font-bold">Click here to view</span></p>
+                <p>Semester IV (Regular) Examination Time Table, March 2023  <span class="text-red-400 font-bold">Click here to view</span></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="script.js"></script>
+</html>
