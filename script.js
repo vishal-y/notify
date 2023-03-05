@@ -51,3 +51,5 @@ Push.create("New event !! ", {
       this.close();
   }
 });
+
+document.getElementById("overlay").style.display = "none";
