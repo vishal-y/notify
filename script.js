@@ -42,40 +42,12 @@ else{
 //     }
 // })
 
-
-// Check if the browser supports notifications
-if ("Notification" in window) {
-    // Request permission to show notifications
-    Notification.requestPermission().then((permission) => {
-      
-        // If the user grants permission, show the notification
-        document.getElementById("overlay").style.display = "none";
-    
-
-      if (permission === "granted") {
-        setTimeout(() => {
-
-            alert("notification about to come")
-
-            const noti = new Notification("Upcoming event !!",{
-                body : a.firstElementChild.innerText,
-                data : { Hello : "world"},
-                icon : "logo.png",
-                tag : "new event updated",
-                vibrate : true,
-            })
-            noti.addEventListener("close",e=>{
-            console.log(e)
-        }, 5000);
-
-    })
-      }
-      else{
-        document.getElementById("overlay").style.display = "none";
-          localStorage.setItem("allowed",false);
-    }
-    });
+Push.create("New event !! ", {
+  body:a.firstElementChild.innerText,
+  icon: "logo.png",
+  timeout: 4000,
+  onClick: function () {
+      window.focus();
+      this.close();
   }
-  else{
-    console.log("something wrong")
-  }
+});
